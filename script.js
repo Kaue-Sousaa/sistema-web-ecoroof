@@ -78,18 +78,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (contactForm) {
     contactForm.addEventListener("submit", function (event) {
-      event.preventDefault(); // Impede o envio tradicional do formulário
+      event.preventDefault();
 
       submitButton.textContent = "Enviando...";
       submitButton.disabled = true;
 
-      // Parâmetros para o serviço EmailJS
       emailjs.sendForm("service_w6gqgli", "template_yojp2me", this).then(
         function () {
           alert(
             "Sua mensagem foi enviada com sucesso! Em breve entraremos em contato."
           );
-          contactForm.reset(); // Limpa o formulário
+          contactForm.reset();
           submitButton.textContent = "Enviar mensagem";
           submitButton.disabled = false;
         },
